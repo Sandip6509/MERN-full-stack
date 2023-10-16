@@ -1,0 +1,14 @@
+h3{
+    background-color: brown;
+    color: white;
+}
+.hello {
+    background-color: aquamarine;
+    border: 5px solid black;
+}
+
+#id-hello{
+    background-color: antiquewhite;
+    color: black;
+    border: 2px solid blue;
+}
