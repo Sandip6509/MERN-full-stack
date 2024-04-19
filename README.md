@@ -1,4 +1,4 @@
 # MERN-full-stack
 
-HTML Learn & CSS Flex/Grid
-Tailwind CSS
+HTML Learn 
+CSS Learn
