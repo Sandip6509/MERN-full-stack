@@ -1,0 +1,24 @@
+span {
+  color: white;
+  background-color: aquamarine;
+}
+
+h1 {
+  color: orange;
+  border: 1px solid red;
+}
+
+h2 {
+  color: rgb(0, 0, 255);
+  border: 1px solid rgb(0, 0, 0);
+}
+h3 {
+  color: rgba(0, 0, 0, 0.2);
+}
+h4 {
+  color: #000000;
+}
+h5{
+  color: hsl(0, 100%, 51%);
+  background-color: hsla(153, 100%, 51%, 1);
+}
