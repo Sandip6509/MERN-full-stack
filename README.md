@@ -1,5 +1,5 @@
 # MERN-full-stack
 
-HTML Learn 
-CSS Learn
-Tailwind Learn
+- HTML Learn 
+- CSS Learn
+- Tailwind Learn
