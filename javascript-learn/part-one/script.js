@@ -48,5 +48,17 @@ console.log(typeof b);
  */
 
 /**
- * 
+ *  Operators
+ *  Arthmetic Operator
  */
+
+console.log(10 + 5);
+console.log(10 - 5);
+console.log(10 * 5);
+console.log(10 / 5);
+console.log(10 % 5);
+console.log(10 ** 5);
+
+let number = 1;
+
+console.log(++number);
