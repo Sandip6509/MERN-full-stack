@@ -10,16 +10,26 @@
     <div class="grid min-h-width place-items-center">
       <div class="flex justify-center gap-32">
         <div class="flex flex-col items-center p-4 rounded-lg">
-          <p class="mb-2 text-lg font-semibold text-gray-700">Text Color Picker</p>
-          <input type="color" id="colorPicker" class="w-40 h-10 border-2 border-gray-300 rounded focus:outline-none" />
+          <p class="mb-2 text-lg font-semibold text-gray-700">
+            Text Color Picker
+          </p>
+          <input
+            type="color"
+            id="colorPicker"
+            class="w-40 h-10 border-2 border-gray-300 rounded focus:outline-none" />
         </div>
         <div class="flex flex-col items-center p-4 rounded-lg">
           <p class="mb-2 text-lg font-semibold text-gray-700">Background</p>
-          <input type="color" id="canvasColor" class="w-40 h-10 border-2 border-gray-300 rounded focus:outline-none" />
+          <input
+            type="color"
+            id="canvasColor"
+            class="w-40 h-10 border-2 border-gray-300 rounded focus:outline-none" />
         </div>
         <div class="flex flex-col items-center p-4 rounded-lg">
           <p class="mb-2 text-lg font-semibold text-gray-700">Font Size</p>
-          <select id="fontSize" class="w-40 h-10 border-2 border-gray-300 rounded focus:outline-none">
+          <select
+            id="fontPicker"
+            class="w-40 h-10 border-2 border-gray-300 rounded focus:outline-none">
             <option value="5">5px</option>
             <option value="10">10px</option>
             <option value="20">20px</option>
@@ -29,14 +39,97 @@
           </select>
         </div>
       </div>
-      <canvas class="border border-black rounded-lg mt-4" id="myCanvas" width="800" height="500"></canvas>
-      <div class="flex flex-row justify-center gap-2 mt-4">
-        <button type="button" id="clearButton" class="w-56 h-10 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600">Clear</button>
-        <button type="button" id="saveButton" class="w-56  h-10  bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Save & Download</button>
-        <button type="button" id="retrieveButton" class="w-56  h-10 bg-yellow-500 text-black py-2 px-4 rounded-md hover:bg-yellow-600">
+      <canvas
+        class="border border-black rounded-lg mt-4"
+        id="myCanvas"
+        width="800"
+        height="500"></canvas>
+      <div class="flex flex-row justify-center gap-4 mt-4">
+        <button
+          type="button"
+          id="clearButton"
+          class="w-56 h-10 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600">
+          Clear
+        </button>
+        <button
+          type="button"
+          id="saveButton"
+          class="w-56 h-10 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
+          Save & Download
+        </button>
+        <button
+          type="button"
+          id="retrieveButton"
+          class="w-56 h-10 bg-yellow-500 text-black py-2 px-4 rounded-md hover:bg-yellow-600">
           Retrieve Saved Signature
         </button>
       </div>
     </div>
+    <script>
+      let colorPicker = document.getElementById("colorPicker");
+      let canvasColor = document.getElementById("canvasColor");
+      let fontPicker = document.getElementById("fontPicker");
+      let clearButton = document.getElementById("clearButton");
+      let saveButton = document.getElementById("saveButton");
+      let retrieveButton = document.getElementById("retrieveButton");
+      let canvas = document.getElementById("myCanvas");
+      let ctx = canvas.getContext("2d");
+      let isDrawing = "";
+      colorPicker.addEventListener("change", (e) => {
+        ctx.strokeStyle = e.target.value;
+        ctx.fillStyle = e.target.value;
+      });
+
+      canvas.addEventListener("mousedown", (e) => {
+        isDrawing = true;
+        lastX = e.offsetX;
+        lastY = e.offsetY;
+      });
+
+      canvas.addEventListener("mousemove", (e) => {
+        if (isDrawing) {
+          ctx.beginPath();
+          ctx.moveTo(lastX, lastY);
+          ctx.lineTo(e.offsetX, e.offsetY);
+          ctx.stroke();
+
+          lastX = e.offsetX;
+          lastY = e.offsetY;
+        }
+      });
+
+      canvas.addEventListener("mouseup", () => {
+        isDrawing = false;
+      });
+
+      canvasColor.addEventListener("change", (e) => {
+        ctx.fillStyle = e.target.value;
+        ctx.fillRect(0, 0, 800, 500);
+      });
+
+      fontPicker.addEventListener("change", (e) => {
+        ctx.lineWidth = e.target.value;
+      });
+
+      clearButton.addEventListener("click", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+
+      saveButton.addEventListener("click", () => {
+        localStorage.setItem("canvasContent", canvas.toDataURL());
+
+        let link = document.createElement("a");
+
+        link.download = "my-canvas.png";
+
+        link.href = canvas.toDataURL();
+
+        link.click();
+      });
+
+      retrieveButton.addEventListener("click", () => {
+        
+      });
+    </script>
   </body>
 </html>
