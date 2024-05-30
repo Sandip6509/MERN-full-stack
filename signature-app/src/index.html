@@ -128,7 +128,13 @@
       });
 
       retrieveButton.addEventListener("click", () => {
-        
+        let savedCanvas = localStorage.getItem('canvasContent')
+
+        if(savedCanvas){
+          let img = new Image()
+          img.src = savedCanvas
+          ctx.drawImage(img,0,0)
+        }
       });
     </script>
   </body>
