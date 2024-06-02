@@ -62,3 +62,16 @@ console.log(10 ** 5);
 let number = 1;
 
 console.log(++number);
+
+/**
+ * Comparison Operator
+ */
+
+let number1 = 5
+let number2 = 7
+
+console.log(number1==number2);
+console.log(number1!=number2);
+console.log(number1>number2);
+console.log(number1<number2);
+console.log(number1==number2);
