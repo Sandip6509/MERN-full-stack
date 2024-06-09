@@ -1,0 +1,67 @@
+:root {
+  --BoxWidth: 60px;
+}
+
+body.dark {
+  background-color: #616161;
+  color: white;
+}
+
+body.light {
+  background-color: #f0ffff;
+  color: black;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+#theme-btn-container {
+  align-self: flex-end;
+  margin: 5px 10px;
+  position: absolute;
+  top: 5%;
+  right: 0;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: var(--BoxWidth);
+  height: calc(var(--BoxWidth) / 2);
+  background-color: black;
+  transition: all 1s ease;
+  position: relative;
+  border-radius: calc(var(--BoxWidth) / 4);
+  cursor: pointer;
+}
+
+.box .ball {
+  width: calc(var(--BoxWidth) / 2);
+  height: calc(var(--BoxWidth) / 2);
+  background-color: grey;
+  transition: all 1s ease;
+  position: absolute;
+  border-radius: 50%;
+  border: calc(var(--BoxWidth) / 30) solid black;
+  box-sizing: border-box;
+}
+
+.box .scenary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: all 1s ease;
+  padding: 0px calc(var(--BoxWidth) / 12) 0px calc(var(--BoxWidth) / 12);
+}
+
+.box .scenary svg {
+  width: calc(var(--BoxWidth) / 3);
+  height: calc(var(--BoxWidth) / 3);
+  transform: scale(calc(var(--BoxWidth) / 3) / 24);
+  margin: 0 auto;
+  display: block;
+}
