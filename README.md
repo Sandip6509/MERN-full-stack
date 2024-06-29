@@ -5,3 +5,18 @@
 - Tailwind Learn
 - Tailwind DSA
 - Javascript Learn
+- Card Game
+- Connect Four
+- Countdown
+- Expense Tracker
+- Guesing Game
+- Keylogger
+- Portfolio
+- Resize Image
+- Sell Ecommerce
+- Signature App Tailwind CSS
+- Tailwind Landing
+- Tailwind Project
+- Tic-tak-toe
+- Todo App
+- Web Sudoku
